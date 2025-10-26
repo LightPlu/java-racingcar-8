@@ -27,9 +27,4 @@ public class ViewParser {
                 .collect(Collectors.joining(", "));
     }
 
-    public static List<String> parseCarNames(String carsName) {
-        return Arrays.stream(carsName.split(","))
-                .map(String::trim)
-                .collect(Collectors.toList());
-    }
 }
