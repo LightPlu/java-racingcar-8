@@ -1,8 +1,9 @@
 package racingcar.view;
 
+import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
-import racingcar.RacingCar;
+import racingcar.domain.car.RacingCar;
 
 public class ViewParser {
 
@@ -24,5 +25,11 @@ public class ViewParser {
         return winningCars.stream()
                 .map(RacingCar::getName)
                 .collect(Collectors.joining(", "));
+    }
+
+    public static List<String> parseCarNames(String carsName) {
+        return Arrays.stream(carsName.split(","))
+                .map(String::trim)
+                .collect(Collectors.toList());
     }
 }
