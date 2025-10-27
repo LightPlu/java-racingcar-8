@@ -17,16 +17,23 @@ public class FindMaxPositionCars {
             }
         }
 
-        return maxPosition;
+        return validateMaxPosition(maxPosition);
     }
 
     public List<RacingCar> findMaxPositionCars(List<RacingCar> racingCars, int maxPosition) {
         racingCars.forEach(racingCar -> {
-            if(racingCar.getPosition() == maxPosition) {
+            if(racingCar.getPosition() == validateMaxPosition(maxPosition)) {
                 winningCars.add(racingCar);
             }
         });
 
         return winningCars;
+    }
+
+    public int validateMaxPosition(int maxPosition) {
+        if(maxPosition == 0) {
+            throw new IllegalArgumentException("아무 자동차도 전진하지 못하여 우승자는 없습니다.");
+        }
+        return maxPosition;
     }
 }
