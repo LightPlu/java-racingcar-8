@@ -1,27 +1,23 @@
 package racingcar.service;
 
+import static racingcar.util.InputValidator.validateInput;
+
 import java.util.List;
 import racingcar.domain.car.RacingCar;
 import racingcar.domain.policy.MovePolicy;
 import racingcar.domain.service.FindMaxPositionCars;
-import racingcar.domain.service.RacingCarFactory;
+import racingcar.domain.car.RacingCarFactory;
+import racingcar.util.NameParser;
 
 public class RacingService {
 
-    private final MovePolicy movePolicy;
-    private final FindMaxPositionCars findMaxPositionCars;
-    private final RacingCarFactory racingCarFactory;
+    private final MovePolicy movePolicy =  new MovePolicy();
+    private final FindMaxPositionCars findMaxPositionCars = new FindMaxPositionCars();
+    private final RacingCarFactory racingCarFactory =  new RacingCarFactory();
 
-    public RacingService(MovePolicy movePolicy,
-                             FindMaxPositionCars findMaxPositionCars,
-                             RacingCarFactory racingCarFactory) {
-        this.movePolicy = movePolicy;
-        this.findMaxPositionCars = findMaxPositionCars;
-        this.racingCarFactory = racingCarFactory;
-    }
-
-    public List<RacingCar> createRacingCars(List<String> carsName) {
-        return racingCarFactory.createCars(carsName);
+    public List<RacingCar> createRacingCars(String carsName) {
+        List<String> parsedNames = NameParser.parseCarNames(validateInput(carsName));
+        return racingCarFactory.createCars(parsedNames);
     }
 
     public void playRounds(List<RacingCar> racingCars) {
