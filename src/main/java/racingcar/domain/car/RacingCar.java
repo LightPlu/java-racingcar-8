@@ -10,7 +10,9 @@ public class RacingCar {
     }
 
     public void move(boolean canMove) {
-        if (canMove) position++;
+        if (canMove) {
+            position++;
+        }
     }
 
     public String getName() {

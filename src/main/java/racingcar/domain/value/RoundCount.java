@@ -12,7 +12,7 @@ public class RoundCount {
     }
 
     public void validateTrim(String input) {
-        if(input.startsWith(" ") || input.endsWith(" ")) {
+        if (input.startsWith(" ") || input.endsWith(" ")) {
             throw new IllegalArgumentException("횟수 앞 뒤로 공백이 올 수 없습니다.");
         }
     }
@@ -27,7 +27,7 @@ public class RoundCount {
     public void validateInteger(String input) {
         try {
             Integer.parseInt(input);
-        } catch (NumberFormatException e){
+        } catch (NumberFormatException e) {
             throw new IllegalArgumentException("시도할 횟수를 정수로 입력해주세요.");
         }
     }

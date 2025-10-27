@@ -36,20 +36,20 @@ public class InputValidator {
     private static void validateTrim(String input) {
         List<String> names = parseCarNames(input);
         names.forEach(name -> {
-            if(name.startsWith(" ") || name.endsWith(" ")) {
+            if (name.startsWith(" ") || name.endsWith(" ")) {
                 throw new IllegalArgumentException("자동차 이름 앞 뒤에는 공백이 올 수 없습니다.");
             }
         });
     }
 
     private static void validateEmpty(String input) {
-        if(input.isEmpty()) {
+        if (input.isEmpty()) {
             throw new IllegalArgumentException("자동차 이름을 입력해주세요.");
         }
     }
 
     private static void validateEndPoint(String input) {
-        if(input.endsWith(",")) {
+        if (input.endsWith(",")) {
             throw new IllegalArgumentException("입력값의 끝은 ,(comma)가 올 수 없습니다.");
         }
     }

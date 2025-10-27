@@ -11,9 +11,9 @@ import racingcar.util.NameParser;
 
 public class RacingService {
 
-    private final MovePolicy movePolicy =  new MovePolicy();
+    private final MovePolicy movePolicy = new MovePolicy();
     private final FindMaxPositionCars findMaxPositionCars = new FindMaxPositionCars();
-    private final RacingCarFactory racingCarFactory =  new RacingCarFactory();
+    private final RacingCarFactory racingCarFactory = new RacingCarFactory();
 
     public List<RacingCar> createRacingCars(String carsName) {
         List<String> parsedNames = NameParser.parseCarNames(validateInput(carsName));
