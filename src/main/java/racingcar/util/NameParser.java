@@ -41,8 +41,6 @@ public class NameParser {
     private static void validateTrim(String input) {
         List<String> names = nameSplit(input);
         names.forEach(name -> {
-            System.out.println(name);
-            System.out.println(name.length());
             if(name.startsWith(" ") || name.endsWith(" ")) {
                 throw new IllegalArgumentException("자동차 이름 앞 뒤에는 공백이 올 수 없습니다.");
             }
